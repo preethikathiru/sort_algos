@@ -2,14 +2,10 @@ function merge(A,start,mid,end) {
    var p = start ,q = mid+1;
    var Arr = new Array(end-start+1) , k=0;
    for( i = start ;i <= end ;i++) {
-       if(p > mid)      
+      if(p > mid || A[ p ] < A[ q ])      
           Arr[ k++ ] = A[ q++] ;
-      else if ( q > end)   
+      else  
           Arr[ k++ ] = A[ p++ ];
-      else if( A[ p ] < A[ q ])     
-         Arr[ k++ ] = A[ p++ ];
-      else
-         Arr[ k++ ] = A[ q++];
     }
     for ( p=0 ; p< k ;p ++) {
         A[ start++ ] = Arr[ p ] ;                          
